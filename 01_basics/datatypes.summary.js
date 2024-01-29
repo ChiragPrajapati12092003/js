@@ -39,3 +39,30 @@ console.log(typeof userEmail);
 console.log(typeof heros);
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+//+++++++++++++++++++++++++++++++++++++
+
+//Stack , Heap (types of memory)
+// Stack = Primitive (give copy)
+// Heap = Non-Primitive(not give copy and have reference and main mai hi change hoga)
+
+let myYoutubename = "chiragprajapati"
+
+let anothername = myYoutubename
+anothername = "chirag07"
+
+console.log(myYoutubename);
+console.log(anothername);
+
+let user = {
+    email : "user@google.com",
+    upi : "user@ybl"
+}
+
+let userTwo = user
+
+userTwo.email = "chirag@google.com"
+
+console.log(user);
+console.log(userTwo);
