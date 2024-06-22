@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+
+    // // Lexical scope
+
+    // // agar koi function ke andr kisi cheeze ko declaire kiya hai to uske andr dusra function banayenge to uske andr us cheeze ka accsee hoga par jo main functiion hai uske bahar us cheeze ka access nai hoga
+    // function outer(){
+    //     let username = "chirag"
+    //     // console.log(secret);// yaha par bhi accsess nai hoga
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner",username);// yaha par access hoga
+    //     }
+
+    //     function inner2(){
+    //         console.log("inner2", username);
+    //         // console.log("mysecret", secret);// yaha par access nai hoga kyu ki jis function mai secret hai vo baha hai
+    //     }
+    //     inner()
+    //     inner2()
+    // }
+    // outer()
+    // console.log("outer", username); // yaha par access nai hoga 
+</script>
+
+<script>
+    // // closure  
+
+    // // jab aap ek pura ka pura function hi return kar dete ho to sirf function return nai hota uska pura lexical scope return hota hai
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+
+    // document.getElementById("orange").onclick = function(){
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+
+    // document.getElementById("green").onclick = function(){
+    //     document.body.style.backgroundColor = 'green'
+    // }
+
+    // if we want do this for 500 buttons so here we create click handler
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`
+        return function(){
+            document.body.style.backgroundColor = `${color}` // yaha par color ka access hai so ham ise use kar pa rahe hai (closure)
+        }
+    }
+
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('green').onclick = clickHandler("green")
+</script>
+
+</html>
